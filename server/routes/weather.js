@@ -1,5 +1,6 @@
 import express from 'express';
 import axios from 'axios';
+import mongoose from 'mongoose';
 import SearchHistory from '../models/SearchHistory.js';
 
 const router = express.Router();
@@ -13,7 +14,11 @@ router.get('/city/:city', async (req, res) => {
     const { userId } = req.query;
 
     if (!API_KEY) {
-      return res.status(500).json({ error: 'OpenWeatherMap API key not configured' });
+      return res.status(500).json({ 
+        error: 'Weather service is not properly configured. Please check the API key.',
+        message: 'OpenWeatherMap API key is missing. Please add VITE_OPENWEATHER_API_KEY to your .env file.',
+        setup: 'See SETUP.md for detailed instructions'
+      });
     }
 
     
@@ -65,7 +70,11 @@ router.get('/coords/:lat/:lon', async (req, res) => {
     const { lat, lon } = req.params;
 
     if (!API_KEY) {
-      return res.status(500).json({ error: 'OpenWeatherMap API key not configured' });
+      return res.status(500).json({ 
+        error: 'Weather service is not properly configured. Please check the API key.',
+        message: 'OpenWeatherMap API key is missing. Please add VITE_OPENWEATHER_API_KEY to your .env file.',
+        setup: 'See SETUP.md for detailed instructions'
+      });
     }
 
     

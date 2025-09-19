@@ -31,8 +31,15 @@ A modern, responsive weather application built with the MERN stack, featuring re
 
 ### Prerequisites
 - Node.js (v18 or higher)
-- MongoDB (local installation or MongoDB Atlas)
-- OpenWeatherMap API key
+- OpenWeatherMap API key (free)
+
+### ⚡ Super Quick Setup
+1. Clone the repository
+2. Copy `.env.example` to `.env`
+3. Add your OpenWeatherMap API key to `.env`
+4. Run `npm install && npm run dev`
+
+**Need detailed setup instructions?** See [SETUP.md](./SETUP.md) for a complete step-by-step guide.
 
 ### Installation
 
@@ -52,30 +59,24 @@ A modern, responsive weather application built with the MERN stack, featuring re
    cp .env.example .env
    ```
    
-   Edit `.env` and add your configuration:
+   **IMPORTANT:** Edit `.env` and add your OpenWeatherMap API key:
    ```env
-   # OpenWeatherMap API Configuration
-   VITE_OPENWEATHER_API_KEY=your_api_key_here
-   VITE_API_BASE_URL=http://localhost:5000/api
-   
-   # Backend Configuration
-   PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/weather-app
-   NODE_ENV=development
+   VITE_OPENWEATHER_API_KEY=your_actual_api_key_here
    ```
+   
+   Get your free API key at [OpenWeatherMap](https://openweathermap.org/api)
 
-4. **Get your OpenWeatherMap API key**
-   - Visit [OpenWeatherMap](https://openweathermap.org/api)
-   - Sign up for a free account
-   - Generate your API key
-   - Add it to your `.env` file
-
-5. **Start the application**
+4. **Start the application**
    ```bash
    npm run dev
    ```
    
    This will start both the frontend (port 5173) and backend (port 5000) servers.
+
+### 🚨 Common Setup Issues
+- **"Weather service is not properly configured"** → Missing API key in `.env` file
+- **"Unable to fetch weather details"** → Invalid or inactive API key
+- See [SETUP.md](./SETUP.md) for detailed troubleshooting
 
 ### Manual Setup (Alternative)
 
